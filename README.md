@@ -238,3 +238,4 @@ sail artisan migrate:refres
 ```
 sail artisan make:model Quiz
 ```
+# LARAVEL-QUIZ-APP
