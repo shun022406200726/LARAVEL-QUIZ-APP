@@ -34,6 +34,15 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'question'=>'required|max:255',
+            'answer-a'=>'required|max:255',
+            'answer-b'=>'required|max:255',
+            'answer-c'=>'required|max:255',
+            'answer-d'=>'required|max:255',
+            'correct_answer'=>'required|in:A,B,C,D',
+            'explanation'=>'required|max:65535',
+        ]);
         return view('quizzes.index');
     }
 
