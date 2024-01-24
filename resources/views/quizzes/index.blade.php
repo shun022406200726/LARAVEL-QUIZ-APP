@@ -4,7 +4,7 @@
 @section('content')
         <h1>Quiz 管理</h1>
         <div class="row mt-5 my-3">
-            <div class="col text-rigtt">
+            <div class="col text-right">
                 <a href="{{route('quizzes.create')}}" type="button" class="btn btn-primary">追加</a>
             </div>
         </div>
