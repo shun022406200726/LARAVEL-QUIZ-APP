@@ -8,7 +8,7 @@ class CreateQuissesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *データベースの形式を決めるのがmigrationファイル
      * @return void
      */
     public function up()
@@ -17,9 +17,9 @@ class CreateQuissesTable extends Migration
             $table->id();
             $table->string('question',255);
             $table->string('answer_a',255);
-            $table->string('answer-b',255);
-            $table->string('answer-c',255);
-            $table->string('answer-d',255);
+            $table->string('answer_b',255);
+            $table->string('answer_c',255);
+            $table->string('answer_d',255);
             $table->enum('correct_answer',["A","B","C","D"]);
             $table->text('explanation')->nullable();
             $table->timestamps();

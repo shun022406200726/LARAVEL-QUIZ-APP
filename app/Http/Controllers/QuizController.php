@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -34,16 +35,28 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validateData= $request->validate([
             'question'=>'required|max:255',
-            'answer-a'=>'required|max:255',
-            'answer-b'=>'required|max:255',
-            'answer-c'=>'required|max:255',
-            'answer-d'=>'required|max:255',
+            'answer_a'=>'required|max:255',
+            'answer_b'=>'required|max:255',
+            'answer_c'=>'required|max:255',
+            'answer_d'=>'required|max:255',
             'correct_answer'=>'required|in:A,B,C,D',
             'explanation'=>'required|max:65535',
         ]);
-        return view('quizzes.index');
+
+        $Quiz= new Quiz;
+        $Quiz->question=$validateData['question'];
+        $Quiz->answer_a=$validateData['answer_a'];
+        $Quiz->answer_b=$validateData['answer_b'];
+        $Quiz->answer_c=$validateData['answer_c'];
+        $Quiz->answer_d=$validateData['answer_d'];
+        $Quiz->correct_answer=$validateData['correct_answer'];
+        $Quiz->explanation=$validateData['explanation'];
+
+        $Quiz->save();
+
+        return redirect(route('quizzes.index'));
     }
 
     /**

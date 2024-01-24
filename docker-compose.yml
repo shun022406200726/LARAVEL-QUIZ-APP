@@ -40,6 +40,7 @@ services:
             MYSQL_USER: '${DB_USERNAME}'
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+            MYSQL_HOST: 'mysql'
         volumes:
             - 'sailmysql:/var/lib/mysql'
             - './docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf'
